@@ -8,7 +8,7 @@ path = kagglehub.dataset_download("asdasdasasdas/garbage-classification")
 base_dir = path +'/Garbage classification/Garbage classification'
 
 labels = sorted(os.listdir(base_dir))
-
+print(labels)
 all_image_info = []
 
 for label in labels:

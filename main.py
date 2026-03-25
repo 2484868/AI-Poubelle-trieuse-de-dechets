@@ -4,11 +4,11 @@ import torchvision
 import torchvision.transforms as transforms
 import torch.optim as optim
 import numpy as np
-from network.with_pytorch.network import Network
+from network import Network
 
 def crop_black(image):
     gray = np.array(image.convert("L")) / 255.0
-    mask = gray < 0.15
+    mask = gray < 0.05
 
     coords = np.argwhere(mask)
     if coords.size == 0:
@@ -22,8 +22,7 @@ def crop_black(image):
 if __name__ == "__main__":
     default_transform = torchvision.transforms.Compose([
         transforms.Lambda(crop_black),
-        transforms.Resize((28, 28)),
-        transforms.Grayscale(num_output_channels=1),
+        transforms.Resize((256, 256)),
         transforms.ToTensor(),
     ])
 
@@ -35,7 +34,7 @@ if __name__ == "__main__":
     test_idx = indices[int(0.8 * len(indices)):]
 
     # compute mean and std
-    loader = DataLoader(full_dataset, batch_size=64, shuffle=False)
+    loader = DataLoader(full_dataset, batch_size=32, shuffle=False)
 
     mean = 0.
     std = 0.
@@ -56,8 +55,7 @@ if __name__ == "__main__":
     # Training transforms: Includes Augmentation
     train_transform = torchvision.transforms.Compose([
         transforms.Lambda(crop_black),
-        transforms.Resize((28, 28)),
-        transforms.Grayscale(num_output_channels=1),
+        transforms.Resize((256, 256)),
         transforms.RandomAffine(degrees=10, translate=(0.1, 0.1), scale=(0.9, 1.1), shear=10),
         transforms.ToTensor(),
         transforms.Normalize(mean=mean.tolist(), std=std.tolist()),
@@ -67,8 +65,7 @@ if __name__ == "__main__":
     # Testing transforms: Clean images for honest accuracy
     test_transform = torchvision.transforms.Compose([
         transforms.Lambda(crop_black),
-        transforms.Resize((28, 28)),
-        transforms.Grayscale(num_output_channels=1),
+        transforms.Resize((256, 256)),
         transforms.ToTensor(),
         transforms.Normalize(mean=mean.tolist(), std=std.tolist()),
     ])
