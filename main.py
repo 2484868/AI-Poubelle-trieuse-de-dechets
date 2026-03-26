@@ -5,6 +5,8 @@ import torchvision.transforms as transforms
 import torch.optim as optim
 import numpy as np
 from network import Network
+import os 
+import kagglehub
 
 def crop_black(image):
     gray = np.array(image.convert("L")) / 255.0
@@ -25,9 +27,17 @@ if __name__ == "__main__":
         transforms.Resize((256, 256)),
         transforms.ToTensor(),
     ])
+    raw_path = kagglehub.dataset_download("asdasdasasdas/garbage-classification")
+    data_dir = os.path.join(raw_path, 'Garbage classification', 'Garbage classification')
+
+    full_dataset = torchvision.datasets.ImageFolder(
+        root=data_dir, 
+        transform=default_transform
+    )
+    
+    # Now your main script "knows" exactly where the 2,527 images are!
 
     # Load and Split (Ensures different transforms for train/test)
-    full_dataset = torchvision.datasets.ImageFolder(root="dataset/dataset-data/training-data", transform=default_transform)
     indices = np.arange(len(full_dataset))
     np.random.shuffle(indices)
     train_idx = indices[:int(0.8 * len(indices))]
@@ -60,7 +70,6 @@ if __name__ == "__main__":
         transforms.ToTensor(),
         transforms.Normalize(mean=mean.tolist(), std=std.tolist()),
     ])
-    print(f"mean: {mean.tolist()}, std: {std.tolist()}")
 
     # Testing transforms: Clean images for honest accuracy
     test_transform = torchvision.transforms.Compose([
@@ -70,8 +79,8 @@ if __name__ == "__main__":
         transforms.Normalize(mean=mean.tolist(), std=std.tolist()),
     ])
 
-    train_data = Subset(torchvision.datasets.ImageFolder(root="dataset/dataset-data/training-data", transform=train_transform), train_idx)
-    test_data = Subset(torchvision.datasets.ImageFolder(root="dataset/dataset-data/training-data", transform=test_transform), test_idx)
+    train_data = Subset(torchvision.datasets.ImageFolder(root=data_dir, transform=train_transform), train_idx)
+    test_data = Subset(torchvision.datasets.ImageFolder(root=data_dir, transform=test_transform), test_idx)
 
     train_dataloader = DataLoader(train_data, batch_size=32, shuffle=True)
     test_dataloader = DataLoader(test_data, batch_size=32, shuffle=False)
@@ -82,13 +91,13 @@ if __name__ == "__main__":
 
     loss_fn = torch.nn.CrossEntropyLoss()
     # Using SGD with momentum as requested
-    optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
     # The Scheduler (Watches test_loss to adjust LR)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=3, factor=0.5)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=2)
 
     # Training Loop
-    epochs = 30
+    epochs = 20    ## A CHANGER##########
     for t in range(epochs):
         print(f"Epoch {t+1}\n-------------------------------")
         model.train_model(train_dataloader, loss_fn, optimizer)
@@ -102,4 +111,4 @@ if __name__ == "__main__":
         print(f"Current LR: {optimizer.param_groups[0]['lr']}")
 
     print("Done!")
-    torch.save(model.state_dict(), "network/saved_models/new_model.pth")
+    torch.save(model.state_dict(), "saved_models/new_model.pth")
