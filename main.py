@@ -10,6 +10,10 @@ import kagglehub
 # 🔥 Speed boost for GPU
 torch.backends.cudnn.benchmark = True
 
+#maybe put back a more effecient black mask that can run faster and add a v2.lambda(defblackmask) to transform parameters
+
+
+
 if __name__ == "__main__":
 
     # --- Load dataset path ---
