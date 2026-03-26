@@ -31,7 +31,8 @@ class Network(nn.Module):
         self.device = device
         # This tracker must start at 64 because that's the output of our first conv layer
         self.in_planes = 64
-        self.scaler = torch.amp.GradScaler('cuda' if 'cuda' in str(device) else 'cpu')
+        self.use_amp = 'cuda' in str(device)
+        self.scaler = torch.amp.GradScaler(enabled=self.use_amp)
 
         # --- PART 1 : RESNET STEM ---
         self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
@@ -84,7 +85,8 @@ class Network(nn.Module):
         for batch, (X, y) in enumerate(dataloader):
             X, y = X.to(self.device, non_blocking=True), y.to(self.device, non_blocking=True)
             
-            with torch.amp.autocast('cuda' if 'cuda' in str(self.device) else 'cpu'):
+            use_amp = 'cuda' in str(self.device)
+            with torch.amp.autocast(device_type='cuda', enabled=use_amp):
                 pred = self(X)
                 loss = loss_fn(pred, y)
             
