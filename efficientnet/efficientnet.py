@@ -26,7 +26,7 @@ NUM_WORKERS = 0  # start with 0 on Windows if you get worker issues
 KAGGLE_DATASET = "asdasdasasdas/garbage-classification"
 DATASET_SUBFOLDER = "Garbage classification/Garbage classification"
 MODEL_SAVE_PATH = "efficientnet_trash_classifier.pt"
-
+NEW_DATASET = "jeyoung-81arm/recyclingman" #??
 
 def set_seed(seed: int):
     random.seed(seed)
