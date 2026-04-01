@@ -1,0 +1,39 @@
+```
+What the network printed during training (in efficientnet_waste_4class.py)
+```
+=== Global dataset summary ===
+Total usable images: 95883
+Counts by unified class: {'trash': 15719, 'recycle': 41813, 'organic': 35145, 'metal': 3206}
+Counts by dataset: {'asdasdasasdas/garbage-classification': 2527, 'phenomsg/waste-classification': 2917, 'mostafaabla/garbage-classification': 15515, 'alistairking/recyclable-and-household-waste-classification': 4500, 'techsash/waste-classification-data': 50154, 'reyhanwiranugraha/real-image-dataset': 20270}
+
+=== Split summary ===
+Train: 76706 {'trash': 12575, 'recycle': 33450, 'organic': 28116, 'metal': 2565}
+Val:   9588 {'trash': 1572, 'recycle': 4181, 'organic': 3514, 'metal': 321}
+Test:  9589 {'trash': 1572, 'recycle': 4182, 'organic': 3515, 'metal': 320}
+
+=== Phase 1: classifier head ===
+C:\Coding\python_projects\AI-Poubelle-trieuse-de-dechets-tomas\.venv\Lib\site-packages\PIL\Image.py:1034: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+C:\Coding\python_projects\AI-Poubelle-trieuse-de-dechets-tomas\.venv\Lib\site-packages\PIL\TiffImagePlugin.py:949: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+[Head] Epoch 1/5 | train_loss=0.8830 train_acc=0.7498 | val_loss=0.7730 val_acc=0.7964
+[Head] Epoch 2/5 | train_loss=0.8478 train_acc=0.7703 | val_loss=0.7869 val_acc=0.7964
+[Head] Epoch 3/5 | train_loss=0.8503 train_acc=0.7701 | val_loss=0.7834 val_acc=0.7714
+[Head] Epoch 4/5 | train_loss=0.8493 train_acc=0.7683 | val_loss=0.7775 val_acc=0.7922
+[Head] Epoch 5/5 | train_loss=0.8482 train_acc=0.7705 | val_loss=0.7776 val_acc=0.7816
+
+=== Phase 2: full fine-tuning ===
+[Fine] Epoch 1/10 | train_loss=0.6742 train_acc=0.8747 | val_loss=0.5627 val_acc=0.9365
+[Fine] Epoch 2/10 | train_loss=0.5726 train_acc=0.9301 | val_loss=0.5465 val_acc=0.9334
+[Fine] Epoch 3/10 | train_loss=0.5338 train_acc=0.9507 | val_loss=0.5201 val_acc=0.9599
+[Fine] Epoch 4/10 | train_loss=0.5128 train_acc=0.9615 | val_loss=0.5091 val_acc=0.9616
+[Fine] Epoch 5/10 | train_loss=0.4964 train_acc=0.9697 | val_loss=0.5050 val_acc=0.9639
+[Fine] Epoch 6/10 | train_loss=0.4871 train_acc=0.9750 | val_loss=0.5058 val_acc=0.9692
+[Fine] Epoch 7/10 | train_loss=0.4783 train_acc=0.9794 | val_loss=0.5006 val_acc=0.9733
+[Fine] Epoch 8/10 | train_loss=0.4730 train_acc=0.9817 | val_loss=0.5000 val_acc=0.9717
+[Fine] Epoch 9/10 | train_loss=0.4684 train_acc=0.9837 | val_loss=0.4977 val_acc=0.9698
+[Fine] Epoch 10/10 | train_loss=0.4632 train_acc=0.9861 | val_loss=0.5022 val_acc=0.9732
+
+TEST | loss=0.5057 acc=0.9714
+Model saved to: efficientnet_waste_4class.pt
+Report saved to: dataset_report_waste_4class.json

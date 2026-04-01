@@ -1,0 +1,7 @@
+https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification
+https://www.kaggle.com/datasets/phenomsg/waste-classification
+https://www.kaggle.com/datasets/adithyachalla/waste-classification
+https://www.kaggle.com/datasets/mostafaabla/garbage-classification
+https://www.kaggle.com/datasets/alistairking/recyclable-and-household-waste-classification
+https://www.kaggle.com/datasets/techsash/waste-classification-data
+https://www.kaggle.com/datasets/reyhanwiranugraha/real-image-dataset

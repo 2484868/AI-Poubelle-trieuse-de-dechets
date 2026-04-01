@@ -7,7 +7,7 @@ from pathlib import Path
 # =========================================================
 # CONFIG
 # =========================================================
-MODEL_PATH = "efficientnet/efficientnet_trash_classifier.pt"
+MODEL_PATH = "efficientnet/efficientnet_waste_4class.pt"
 TEST_IMAGES_DIR = "efficientnet/cropped_images"
 IMAGE_SIZE = 224
 

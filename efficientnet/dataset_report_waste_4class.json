@@ -1,0 +1,200 @@
+{
+  "total_usable_images": 95883,
+  "global_counts": {
+    "trash": 15719,
+    "recycle": 41813,
+    "organic": 35145,
+    "metal": 3206
+  },
+  "split_counts": {
+    "train": {
+      "trash": 12575,
+      "recycle": 33450,
+      "organic": 28116,
+      "metal": 2565
+    },
+    "val": {
+      "trash": 1572,
+      "recycle": 4181,
+      "organic": 3514,
+      "metal": 321
+    },
+    "test": {
+      "trash": 1572,
+      "recycle": 4182,
+      "organic": 3515,
+      "metal": 320
+    }
+  },
+  "counts_by_dataset": {
+    "asdasdasasdas/garbage-classification": 2527,
+    "phenomsg/waste-classification": 2917,
+    "mostafaabla/garbage-classification": 15515,
+    "alistairking/recyclable-and-household-waste-classification": 4500,
+    "techsash/waste-classification-data": 50154,
+    "reyhanwiranugraha/real-image-dataset": 20270
+  },
+  "dataset_summaries": [
+    {
+      "dataset_slug": "asdasdasasdas/garbage-classification",
+      "dataset_root": "C:\\Users\\mwnbo\\.cache\\kagglehub\\datasets\\asdasdasasdas\\garbage-classification\\versions\\2",
+      "total_image_files_seen": 2527,
+      "usable_images": 2527,
+      "usable_by_unified_class": {
+        "recycle": 1980,
+        "metal": 410,
+        "trash": 137
+      },
+      "matched_raw_labels": {
+        "cardboard": 403,
+        "glass": 501,
+        "metal": 410,
+        "paper": 594,
+        "plastic": 482,
+        "trash": 137
+      },
+      "skipped_known_aliases": {},
+      "top_unresolved_parent_labels": {}
+    },
+    {
+      "dataset_slug": "phenomsg/waste-classification",
+      "dataset_root": "C:\\Users\\mwnbo\\.cache\\kagglehub\\datasets\\phenomsg\\waste-classification\\versions\\1",
+      "total_image_files_seen": 2917,
+      "usable_images": 2917,
+      "usable_by_unified_class": {
+        "recycle": 659,
+        "organic": 674,
+        "trash": 1584
+      },
+      "matched_raw_labels": {
+        "recyclable": 659,
+        "organic": 674,
+        "non recyclable": 645,
+        "batteries": 110,
+        "hazardous": 829
+      },
+      "skipped_known_aliases": {},
+      "top_unresolved_parent_labels": {}
+    },
+    {
+      "dataset_slug": "adithyachalla/waste-classification",
+      "dataset_root": "C:\\Users\\mwnbo\\.cache\\kagglehub\\datasets\\adithyachalla\\waste-classification\\versions\\1",
+      "total_image_files_seen": 4752,
+      "usable_images": 0,
+      "usable_by_unified_class": {},
+      "matched_raw_labels": {},
+      "skipped_known_aliases": {},
+      "top_unresolved_parent_labels": {
+        "7 plastic": 921,
+        "4 metal": 790,
+        "6 paper": 500,
+        "5 miscellaneous trash": 495,
+        "1 cardboard": 461,
+        "9 vegetation": 436,
+        "3 glass": 420,
+        "2 food organics": 411,
+        "8 textile trash": 318
+      }
+    },
+    {
+      "dataset_slug": "mostafaabla/garbage-classification",
+      "dataset_root": "C:\\Users\\mwnbo\\.cache\\kagglehub\\datasets\\mostafaabla\\garbage-classification\\versions\\1",
+      "total_image_files_seen": 15515,
+      "usable_images": 15515,
+      "usable_by_unified_class": {
+        "trash": 8944,
+        "organic": 985,
+        "recycle": 4817,
+        "metal": 769
+      },
+      "matched_raw_labels": {
+        "battery": 945,
+        "biological": 985,
+        "brown glass": 607,
+        "cardboard": 891,
+        "clothes": 5325,
+        "green glass": 629,
+        "metal": 769,
+        "paper": 1050,
+        "plastic": 865,
+        "shoes": 1977,
+        "trash": 697,
+        "white glass": 775
+      },
+      "skipped_known_aliases": {},
+      "top_unresolved_parent_labels": {}
+    },
+    {
+      "dataset_slug": "alistairking/recyclable-and-household-waste-classification",
+      "dataset_root": "C:\\Users\\mwnbo\\.cache\\kagglehub\\datasets\\alistairking\\recyclable-and-household-waste-classification\\versions\\1",
+      "total_image_files_seen": 15000,
+      "usable_images": 4500,
+      "usable_by_unified_class": {
+        "trash": 1000,
+        "recycle": 2000,
+        "organic": 1500
+      },
+      "matched_raw_labels": {
+        "shoes": 500,
+        "plastic food containers": 500,
+        "office paper": 500,
+        "newspaper": 500,
+        "food waste": 500,
+        "eggshells": 500,
+        "coffee grounds": 500,
+        "clothing": 500,
+        "cardboard boxes": 500
+      },
+      "skipped_known_aliases": {},
+      "top_unresolved_parent_labels": {
+        "default": 5250,
+        "real world": 5250
+      }
+    },
+    {
+      "dataset_slug": "techsash/waste-classification-data",
+      "dataset_root": "C:\\Users\\mwnbo\\.cache\\kagglehub\\datasets\\techsash\\waste-classification-data\\versions\\1",
+      "total_image_files_seen": 50154,
+      "usable_images": 50154,
+      "usable_by_unified_class": {
+        "organic": 27932,
+        "recycle": 22222
+      },
+      "matched_raw_labels": {
+        "o": 27932,
+        "r": 22222
+      },
+      "skipped_known_aliases": {},
+      "top_unresolved_parent_labels": {}
+    },
+    {
+      "dataset_slug": "reyhanwiranugraha/real-image-dataset",
+      "dataset_root": "C:\\Users\\mwnbo\\.cache\\kagglehub\\datasets\\reyhanwiranugraha\\real-image-dataset\\versions\\2",
+      "total_image_files_seen": 26351,
+      "usable_images": 20270,
+      "usable_by_unified_class": {
+        "recycle": 10135,
+        "organic": 4054,
+        "metal": 2027,
+        "trash": 4054
+      },
+      "matched_raw_labels": {
+        "cardboard": 2027,
+        "food organics": 2027,
+        "glass": 2027,
+        "metal": 2027,
+        "miscellaneous trash": 2027,
+        "paper": 2027,
+        "plastic": 4054,
+        "textile": 2027,
+        "vegetation": 2027
+      },
+      "skipped_known_aliases": {},
+      "top_unresolved_parent_labels": {
+        "mixed": 2027,
+        "porcelain": 2027,
+        "rubber": 2027
+      }
+    }
+  ]
+}
